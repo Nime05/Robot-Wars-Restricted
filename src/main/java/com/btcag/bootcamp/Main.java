@@ -1,12 +1,13 @@
 package com.btcag.bootcamp;
 
 import java.util.Scanner;
+
 import static com.btcag.bootcamp.Clear.clear;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
+        //Spielbeginn; Begrüßung mit Spielername; Robotername wird abgefragt
         System.out.println("Bitte gib deinen Spielernamen ein:");
         String playername = scanner.nextLine();
         clear();
@@ -19,12 +20,11 @@ public class Main {
         int robotY = 11;
 
         boolean newcords = true;
-
+        //Startkoordinaten werden abgefragt und überprüft
         while (newcords) {
             System.out.println("Bitte gib die X-Koordinate an (1-15):");
             int currentX = scanner.nextInt();
-            while(currentX < 1 || currentX > 15)
-            {
+            while (currentX < 1 || currentX > 15) {
                 System.out.println("Ungültige Eingabe! Bitte gib eine Zahl zwischen 1-15 an:");
                 currentX = scanner.nextInt();
             }
@@ -33,8 +33,7 @@ public class Main {
 
             System.out.println("Bitte gib die Y-Koordinate an (1-10):");
             int currentY = scanner.nextInt();
-            while(currentY < 1 || currentY > 10)
-            {
+            while (currentY < 1 || currentY > 10) {
                 System.out.println("Ungültige Eingabe! Bitte gib eine Zahl zwischen 1-10 an:");
                 currentY = scanner.nextInt();
             }
@@ -42,6 +41,7 @@ public class Main {
 
             clear();
             int y = 1;
+            //Spielfelderzeugung mit berücksichtigung der Roboterposition; Angabe auf welchen koordinaten sich der Roboter befindet
             while (y < robotY) {
                 int x = 1;
                 while (x < robotX) {
@@ -65,8 +65,8 @@ public class Main {
                 System.out.println();
                 y++;
             }
-            System.out.println(botname+" ist gerade bei X: "+currentX+" Y: "+currentY+" .\n\n");
-
+            System.out.println(botname + " ist gerade bei X: " + currentX + " Y: " + currentY + " .\n\n");
+            //Abfrage für den nächsten Zug
             System.out.println("Möchtest du neue Koordinaten eingeben? (ja/nein)");
             String answer = scanner.next();
             newcords = answer.equalsIgnoreCase("ja");
