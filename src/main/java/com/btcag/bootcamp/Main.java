@@ -26,6 +26,16 @@ public class Main {
                 System.out.println("Ungültige Eingabe! Bitte gib eine Zahl zwischen 1-15 an:");
                 currentX = scanner.nextInt();
             }
+
+            clear();
+
+            System.out.println("Bitte gib die Y-Koordinate an (1-10):");
+            int currentY = scanner.nextInt();
+            while (currentY < 1 || currentY > 10) {
+                System.out.println("Ungültige Eingabe! Bitte gib eine Zahl zwischen 1-10 an:");
+                currentY = scanner.nextInt();
+            }
+
             System.out.println("Möchtest du neue Koordinaten eingeben? (ja/nein)");
             String answer = scanner.next();
             newcords = answer.equalsIgnoreCase("ja");
