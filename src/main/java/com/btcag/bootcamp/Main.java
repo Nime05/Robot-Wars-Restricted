@@ -16,5 +16,19 @@ public class Main {
         System.out.println("Benenne bitte deinen Roboter:");
         String botname = scanner.nextLine();
 
+
+        boolean newcords = true;
+        //Startkoordinaten werden abgefragt und überprüft
+        while (newcords) {
+            System.out.println("Bitte gib die X-Koordinate an (1-15):");
+            int currentX = scanner.nextInt();
+            while (currentX < 1 || currentX > 15) {
+                System.out.println("Ungültige Eingabe! Bitte gib eine Zahl zwischen 1-15 an:");
+                currentX = scanner.nextInt();
+            }
+            System.out.println("Möchtest du neue Koordinaten eingeben? (ja/nein)");
+            String answer = scanner.next();
+            newcords = answer.equalsIgnoreCase("ja");
+        }
     }
 }
