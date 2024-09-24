@@ -16,6 +16,8 @@ public class Main {
         System.out.println("Benenne bitte deinen Roboter:");
         String botname = scanner.nextLine();
 
+        int robotX = 16;
+        int robotY = 11;
 
         boolean newcords = true;
         //Startkoordinaten werden abgefragt und überprüft
@@ -36,6 +38,35 @@ public class Main {
                 currentY = scanner.nextInt();
             }
 
+
+            clear();
+            int y = 1;
+            //Spielfelderzeugung mit berücksichtigung der Roboterposition; Angabe auf welchen koordinaten sich der Roboter befindet
+            while (y < robotY) {
+                int x = 1;
+                while (x < robotX) {
+
+                    boolean isrobotposition = false;
+
+                    while (x == currentX && y == currentY) {
+                        System.out.print("[ X ]");
+                        isrobotposition = true;
+                        break;
+                    }
+
+
+                    while (!isrobotposition) {
+                        System.out.print("[   ]");
+                        break;
+                    }
+
+                    x++;
+                }
+                System.out.println();
+                y++;
+            }
+            System.out.println(botname + " ist gerade bei X: " + currentX + " Y: " + currentY + " .\n\n");
+            //Abfrage für den nächsten Zug
             System.out.println("Möchtest du neue Koordinaten eingeben? (ja/nein)");
             String answer = scanner.next();
             newcords = answer.equalsIgnoreCase("ja");
